@@ -1,7 +1,8 @@
 class plateau:
   """classe créeant un plateau 6x6"""
   def __init__(self):
-    for i in range (6):
+    self.plateau = [[["1"],["2"],["3"],["4"],["5"],["6"]]]
+    print self.plateau
       
   
   
