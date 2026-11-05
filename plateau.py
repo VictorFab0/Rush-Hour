@@ -1,2 +1,2 @@
 def plateau():
-  """Fonction créeant un plateau"""
+  """Fonction créeant un plateau 6x6"""
