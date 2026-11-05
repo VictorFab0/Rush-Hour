@@ -1,2 +1,7 @@
-def plateau():
-  """Fonction créeant un plateau 6x6"""
+class plateau:
+  """classe créeant un plateau 6x6"""
+  def __init__(self):
+    for i in range (6):
+      
+  
+  
