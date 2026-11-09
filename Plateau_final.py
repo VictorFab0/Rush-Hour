@@ -1,0 +1,11 @@
+taille = 6
+Plateau = []
+
+for ligne in range(taille):
+    Plateau.append(["x"] * taille)
+
+for ligne in range(taille):
+    affichage = ""
+    for colonne in range(taille):
+        affichage = affichage + Plateau[ligne][colonne] + " "
+    print(affichage)
