@@ -10,13 +10,16 @@ class Voiture_rouge:
         else:
             print("Coordonnées pas bonne")
 
+"""
 taille = 6
 Plateau = []
 
 for ligne in range(taille):
     Plateau.append(["x"] * taille)
 
-voiture = Voiture_rouge(2, 3)
+voiture = Voiture_rouge(3, 3)
+"""
+
 for i in range(voiture.taille):
     Plateau[voiture.coordonnees_x][voiture.coordonnees_y + i] = "r"
 for ligne in range(taille):
