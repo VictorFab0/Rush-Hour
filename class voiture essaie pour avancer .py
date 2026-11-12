@@ -3,8 +3,9 @@ class Voiture:
   def __init__(self, couleur, taille, symbole, coordonnees_x,coordonnees_y ):
     """initialisation d'une voiture dont la taille est comprise entre 2 et 3 compris. 
     La voiture rouge est réservée à la voiture à faire sortir."""
-    
+    self.symbole = couleur[0].upper()
     self.taille = taille 
+    self.orientation = orientation  # "H" (horizontal) ou "V" (vertical)
     if 0<=self.coordonnees_x<=5 :
       self.coordonees_x = coordonnees_x
     else : 
