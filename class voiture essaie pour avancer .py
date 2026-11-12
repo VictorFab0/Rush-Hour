@@ -23,18 +23,28 @@ class Voiture:
 
     
   def avancer(self, nb_cases, plateau):
-        """Déplace la voiture """
-        # Effacer ancienne position
+         """Déplace la voiture sur le plateau"""
+        # 1. Effacer l'ancienne position
         for i in range(self.taille):
-            plateau.grille[self.coordonnees_x][self.coordonnees_y + i] = "x"
-        
-        # Mettre à jour
-        self.coordonnees_y += nb_cases
-        
-        # Nouvelle position
+            if self.orientation == "H":
+                plateau.grille[self.coordonnees_x][self.coordonnees_y + i] = "x"
+            else:
+                plateau.grille[self.coordonnees_x + i][self.coordonnees_y] = "x"
+
+        # 2. Mettre à jour les coordonnées
+        if self.orientation == "H":
+            self.coordonnees_y += nb_cases
+        else:
+            self.coordonnees_x += nb_cases
+
+        # 3. Placer à la nouvelle position
         for i in range(self.taille):
-            plateau.grille[self.coordonnees_x][self.coordonnees_y + i] = self.symbole  
+            if self.orientation == "H":
+                plateau.grille[self.coordonnees_x][self.coordonnees_y + i] = self.symbole
+            else:
+                plateau.grille[self.coordonnees_x + i][self.coordonnees_y] = self.symbole
  
+       
 """
 taille = 6
 Plateau = []
