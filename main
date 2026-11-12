@@ -1,0 +1,18 @@
+from plateau import Plateau
+from voiture import Voiture, Voiture_rouge
+
+# Initialisation du jeu
+mon_plateau = Plateau()
+
+# Création des véhicules
+rouge = Voiture_rouge(x=2, y=1)
+bleue = Voiture("bleu", 3, x=0, y=3, orientation="V")
+jaune = Voiture("jaune", 2, x=4, y=0, orientation="H")
+
+# Placement
+mon_plateau.placer_voiture(rouge)
+mon_plateau.placer_voiture(bleue)
+mon_plateau.placer_voiture(jaune)
+
+# Affichage final
+mon_plateau.afficher()
