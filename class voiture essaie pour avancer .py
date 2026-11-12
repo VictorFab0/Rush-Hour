@@ -4,7 +4,10 @@ class Voiture:
     """initialisation d'une voiture dont la taille est comprise entre 2 et 3 compris. 
     La voiture rouge est réservée à la voiture à faire sortir."""
     self.symbole = couleur[0].upper()
-    self.taille = taille 
+    if 1<self.taille<3 : 
+      self.taille= taille 
+    else : 
+      print ("La taille doit etre compris entre 1 et 3 ! ")
     self.orientation = orientation  # "H" (horizontal) ou "V" (vertical)
     if 0<=self.coordonnees_x<=5 :
       self.coordonees_x = coordonnees_x
@@ -46,15 +49,13 @@ class Voiture:
                 plateau.grille[self.coordonnees_x + i][self.coordonnees_y] = self.symbole
  
        
-"""
+
 taille = 6
 Plateau = []
 
 for ligne in range(taille):
     Plateau.append(["x"] * taille)
 
-voiture = Voiture_rouge(3, 3)
-"""
 
 for i in range(voiture.taille):
     Plateau[voiture.coordonnees_x][voiture.coordonnees_y + i] = "r"
