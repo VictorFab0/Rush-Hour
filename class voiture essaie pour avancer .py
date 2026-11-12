@@ -48,6 +48,9 @@ class Voiture:
             else:
                 plateau.grille[self.coordonnees_x + i][self.coordonnees_y] = self.symbole       
 
+
+#plateau 
+
 taille = 6
 Plateau = []
 
