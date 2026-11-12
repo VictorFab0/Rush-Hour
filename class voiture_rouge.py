@@ -1,3 +1,4 @@
+
 class Voiture_rouge:
     """Classe créant la voiture rouge (toujours horizontale)"""
     def __init__(self, coordonnees_x, coordonnees_y):
