@@ -46,9 +46,7 @@ class Voiture:
             if self.orientation == "H":
                 plateau.grille[self.coordonnees_x][self.coordonnees_y + i] = self.symbole
             else:
-                plateau.grille[self.coordonnees_x + i][self.coordonnees_y] = self.symbole
- 
-       
+                plateau.grille[self.coordonnees_x + i][self.coordonnees_y] = self.symbole       
 
 taille = 6
 Plateau = []
@@ -56,9 +54,8 @@ Plateau = []
 for ligne in range(taille):
     Plateau.append(["x"] * taille)
 
-
 for i in range(voiture.taille):
-    Plateau[voiture.coordonnees_x][voiture.coordonnees_y + i] = "r"
+    Plateau[voiture.coordonnees_x][voiture.coordonnees_y + i] = self.symbole
 for ligne in range(taille):
     affichage = ""
     for colonne in range(taille):
