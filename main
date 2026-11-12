@@ -7,7 +7,36 @@ mon_plateau = Plateau()
 # Création des véhicules
 rouge = Voiture_rouge(x=2, y=1)
 bleue = Voiture("bleu", 3, x=0, y=3, orientation="V")
-jaune = Voiture("jaune", 2, x=4, y=0, orientation="H")
+jaune = Voi# Importe tes classes depuis tes fichiers respectifs
+# (assure-toi que les noms de fichiers correspondent, par ex. voiture.py et voiture_rouge.py)
+from voiture import Voiture
+from voiture_rouge import Voiture_rouge
+
+# 1. Initialisation du plateau (reprend la structure de Plateau_filip_V2)
+taille = 6
+Plateau = []
+
+for ligne in range(taille):
+    Plateau.append(["x"] * taille)
+
+# 2. Création et placement de la voiture rouge
+# (par exemple à la ligne 2, colonne 1)
+voiture_R = Voiture_rouge(2, 1)
+
+for i in range(voiture_R.taille):
+    Plateau[voiture_R.coordonnees_x][voiture_R.coordonnees_y + i] = voiture_R.symbole
+
+# 3. Création et placement d'une autre voiture (si ta classe Voiture le gère)
+# Exemple : une voiture bleue verticale de taille 3 à la colonne 3, ligne 0
+voiture_B = Voiture("bleu", 3, 0, 3)
+# (Si tu as une méthode pour placer les autres voitures, tu peux l'appeler ici)
+
+# 4. Affichage final du plateau mis à jour
+for ligne in range(taille):
+    affichage = ""
+    for colonne in range(taille):
+        affichage += Plateau[ligne][colonne] + " "
+    print(affichage)ture("jaune", 2, x=4, y=0, orientation="H")
 
 # Placement
 mon_plateau.placer_voiture(rouge)
