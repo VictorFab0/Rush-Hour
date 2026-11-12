@@ -13,7 +13,7 @@ class Voiture:
       self.coordonees_y = coordonnees_y
       print ("Les coordonnées doivent être compris entre 0 et 5 pour qu'elles puissent concorder avce le tableau !")
     if self.couleur = "rouge" : 
-      self.couelur = couleur
+      self.couleur = couleur
       self.taille = 2
       self.symbole = "r"
       self.coordonnees_x = 2
