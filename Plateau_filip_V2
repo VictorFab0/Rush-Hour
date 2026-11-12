@@ -1,43 +1,34 @@
-# On importe les classes du fichier voiture.py
-from voiture import Voiture, Voiture_rouge
+class Voiture_rouge:
+    """Classe créant la voiture rouge"""
+    def __init__(self, coordonnees_x, coordonnees_y):
+        # coordonnees_x = ligne, coordonnees_y = colonne de départ
+        if 0 <= coordonnees_x <= 5 and 0 <= coordonnees_y <= 4:
+            self.coordonnees_x = coordonnees_x
+            self.coordonnees_y = coordonnees_y
+            self.couleur = "rouge"
+            self.taille = 2
+            self.symbole = "r"
+        else:
+            print("Coordonnées pas bonnes")
 
-class Plateau:
-    """Plateau 6x6 basé sur Plateau_filip_V2 avec gestion des coordonnées"""
-    def __init__(self):
-        # Grille 6x6 remplie de "." pour les cases vides
-        self.grille = [["." for _ in range(6)] for _ in range(6)]
 
-    def placer_voiture(self, voiture):
-        """Vérifie les coordonnées et place la voiture sur la grille"""
-        cases_a_occuper = []
+# --- Initialisation du plateau (Plateau_filip_V2) ---
+taille = 6
+Plateau = []
 
-        for i in range(voiture.taille):
-            if voiture.orientation == "H":
-                cx, cy = voiture.x, voiture.y + i
-            else:  
-                cx, cy = voiture.x + i, voiture.y
+for ligne in range(taille):
+    Plateau.append(["x"] * taille)
 
-            # Vérification des limites du plateau (0 à 5)
-            if not (0 <= cx <= 5 and 0 <= cy <= 5):
-                print(f"Erreur : La voiture {voiture.couleur} sort du plateau en ({cx}, {cy}) !")
-                return False
+# Création de la voiture rouge à la ligne 2, colonne 1
+voiture_R = Voiture_rouge(2, 1)
 
-            # Vérification des collisions
-            if self.grille[cx][cy] != ".":
-                print(f"Erreur : Collision en ({cx}, {cy}) pour la voiture {voiture.couleur} !")
-                return False
+# Placement de la voiture rouge sur le plateau (prend 2 cases horizontalement)
+for i in range(voiture_R.taille):
+    Plateau[voiture_R.coordonnees_x][voiture_R.coordonnees_y + i] = voiture_R.symbole
 
-            cases_a_occuper.append((cx, cy))
-
-        # Inscription du symbole sur la grille
-        for cx, cy in cases_a_occuper:
-            self.grille[cx][cy] = voiture.symbole
-        return True
-
-    def afficher(self):
-        """Affiche proprement le plateau avec la sortie"""
-        print("  0 1 2 3 4 5")
-        for i in range(6):
-            sortie = "  <-- SORTIE" if i == 2 else ""
-            print(f"{i} " + " ".join(self.grille[i]) + sortie)
-        print()
+# Affichage du plateau mis à jour
+for ligne in range(taille):
+    affichage = ""
+    for colonne in range(taille):
+        affichage += Plateau[ligne][colonne] + " "
+    print(affichage)
