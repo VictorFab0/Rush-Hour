@@ -1,21 +1,24 @@
-from plateau import Plateau_filip_V2
+from plateau import Plateau
 from voiture_rouge import Voiture_rouge
 from voiture import Voiture
 
-# 1. Initialisation
-mon_plateau = Plateau()
+# Initialisation du plateau (basé sur Plateau_filip_V2)
+taille = 6
+Plateau = []
 
-# 2. Création de la voiture rouge en (ligne 2, colonne 1)
+for ligne in range(taille):
+    Plateau.append(["x"] * taille)
+
+# Création et placement de la voiture rouge en ligne 2, colonne 1
 voiture_R = Voiture_rouge(2, 1)
 
-# Placement initial sur la grille
 for i in range(voiture_R.taille):
-    mon_plateau.grille[voiture_R.coordonnees_x][voiture_R.coordonnees_y + i] = voiture_R.symbole
+    Plateau[voiture_R.coordonnees_x][voiture_R.coordonnees_y + i] = voiture_R.symbole
 
-print("Plateau de départ :")
-mon_plateau.afficher()
-
-# 3. Faire avancer la voiture rouge de 1 case vers la droite
-print("--- Après avancement de 1 case ---")
-voiture_R.avancer(1, mon_plateau)
-mon_plateau.afficher()
+# Affichage initial du plateau (comme dans Plateau_filip_V2)
+print("--- Plateau initial ---")
+for ligne in range(taille):
+    affichage = ""
+    for colonne in range(taille):
+        affichage = affichage + Plateau[ligne][colonne] + " "
+    print(affichage)
