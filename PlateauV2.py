@@ -1,18 +1,16 @@
-class plateau:
-    """Classe créant un plateau 6x6"""
-
+class Plateau:
+    """Classe créant et gérant le plateau de jeu 6x6"""
     def __init__(self):
-        self.plateau = []
+        self.taille = 6
+        self.grille = []
 
-        nombre = 1
+        for ligne in range(self.taille):
+            self.grille.append(["x"] * self.taille)
 
-        for ligne in range(6):
-            ligne_plateau = []
-
-            for colonne in range(6):
-                ligne_plateau.append([str(nombre)])
-                nombre += 1
-
-            self.plateau.append(ligne_plateau)
-
-        print(self.plateau)
+    def afficher(self):
+        """Affiche le plateau dans la console"""
+        print("  0 1 2 3 4 5")
+        for i in range(self.taille):
+            sortie = "  <-- SORTIE" if i == 2 else ""
+            print(f"{i} " + " ".join(self.grille[i]) + sortie)
+        print()

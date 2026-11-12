@@ -1,11 +1,34 @@
-taille=6
-Plateau=[]
+class Voiture_rouge:
+    """Classe créant la voiture rouge"""
+    def __init__(self, coordonnees_x, coordonnees_y):
+        # coordonnees_x = ligne, coordonnees_y = colonne de départ
+        if 0 <= coordonnees_x <= 5 and 0 <= coordonnees_y <= 4:
+            self.coordonnees_x = coordonnees_x
+            self.coordonnees_y = coordonnees_y
+            self.couleur = "rouge"
+            self.taille = 2
+            self.symbole = "r"
+        else:
+            print("Coordonnées pas bonnes")
+
+
+# --- Initialisation du plateau (Plateau_filip_V2) ---
+taille = 6
+Plateau = []
 
 for ligne in range(taille):
-    Plateau.append(["x"]*taille)
-    
+    Plateau.append(["x"] * taille)
+
+# Création de la voiture rouge à la ligne 2, colonne 1
+voiture_R = Voiture_rouge(2, 1)
+
+# Placement de la voiture rouge sur le plateau (prend 2 cases horizontalement)
+for i in range(voiture_R.taille):
+    Plateau[voiture_R.coordonnees_x][voiture_R.coordonnees_y + i] = voiture_R.symbole
+
+# Affichage du plateau mis à jour
 for ligne in range(taille):
-    affichage=""
+    affichage = ""
     for colonne in range(taille):
-        affichage = affichage + Plateau[ligne][colonne]+ " "
+        affichage += Plateau[ligne][colonne] + " "
     print(affichage)
