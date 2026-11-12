@@ -1,0 +1,24 @@
+class Voiture:
+    """Classe créant une voiture standard sur le plateau"""
+    def __init__(self, couleur, taille, coordonnees_x, coordonnees_y, orientation):
+        self.couleur = couleur
+        self.taille = taille
+        self.coordonnees_x = coordonnees_x
+        self.coordonnees_y = coordonnees_y
+        self.orientation = orientation  # "H" (horizontal) ou "V" (vertical)
+        self.symbole = couleur[0].upper() # Première lettre en majuscule
+
+        # Vérification des limites du tableau (0 à 5)
+        if not (0 <= self.coordonnees_x <= 5 and 0 <= self.coordonnees_y <= 5):
+            print("Les coordonnées doivent être comprises entre 0 et 5 !")
+
+        if self.couleur == "rouge":
+            print("La voiture ne doit pas être rouge (utiliser Voiture_rouge)")
+
+    def placer(self, plateau):
+        """Place la voiture sur la grille du plateau"""
+        for i in range(self.taille):
+            if self.orientation == "H":
+                plateau[self.coordonnees_x][self.coordonnees_y + i] = self.symbole
+            else:
+                plateau[self.coordonnees_x + i][self.coordonnees_y] = self.symbole
