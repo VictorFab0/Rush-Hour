@@ -1,6 +1,6 @@
 class Voiture:
   """Classe créeant une voiture sur le plateau"""
-  def __init__(self, couleur, taille,symbole, coordonnees_x,coordonnees_y ):
+  def __init__(self, couleur, taille, symbole, coordonnees_x,coordonnees_y ):
     """initialisation d'une voiture dont la taille est comprise entre 2 et 3 compris. 
     La voiture rouge est réservée à la voiture à faire sortir."""
     
@@ -16,6 +16,8 @@ class Voiture:
       self.couelur = couleur
       self.taille = 2
       self.symbole = "r"
+      self.coordonnees_x = 2
+      self.coordonnees_y = 0
     else : 
       self.couleur = couleur
 
@@ -23,3 +25,21 @@ class Voiture:
   def avancer (self, nb_cases) :
     
     
+ 
+"""
+taille = 6
+Plateau = []
+
+for ligne in range(taille):
+    Plateau.append(["x"] * taille)
+
+voiture = Voiture_rouge(3, 3)
+"""
+
+for i in range(voiture.taille):
+    Plateau[voiture.coordonnees_x][voiture.coordonnees_y + i] = "r"
+for ligne in range(taille):
+    affichage = ""
+    for colonne in range(taille):
+        affichage += Plateau[ligne][colonne] + " "
+    print(affichage)
