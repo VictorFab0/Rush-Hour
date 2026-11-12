@@ -21,10 +21,19 @@ class Voiture:
     else : 
       self.couleur = couleur
 
-
-  def avancer (self, nb_cases) :
     
-    
+  def avancer(self, nb_cases, plateau):
+        """Déplace la voiture """
+        # Effacer ancienne position
+        for i in range(self.taille):
+            plateau.grille[self.coordonnees_x][self.coordonnees_y + i] = "x"
+        
+        # Mettre à jour
+        self.coordonnees_y += nb_cases
+        
+        # Nouvelle position
+        for i in range(self.taille):
+            plateau.grille[self.coordonnees_x][self.coordonnees_y + i] = self.symbole  
  
 """
 taille = 6
